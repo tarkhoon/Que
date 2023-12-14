@@ -18,14 +18,16 @@ return (
                 <FlatList 
                     
                     numColumns={3}
-                    data={posts} renderItem={({item}) => (
+                    data={posts} 
+                    renderItem={({item}) => (
                         
                         <View style={styles.post}>
 
                         <Image  style={styles.postPicture} source={{uri:item.img}} resizeMode='center'/>
 
                         </View>
-                )}/>
+                    )}
+                />
         </View>
   
   
