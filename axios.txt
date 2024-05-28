@@ -1,0 +1,12 @@
+formData.append("image",{
+                    uri: image,
+                    name: 'photo.jpg',
+                    type: 'image/jpg'}
+                );
+                axios.post('http://192.168.0.110:4000/upload', formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }).then((res)=>{
+                    console.log(res)
+                })
