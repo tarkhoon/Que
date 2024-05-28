@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 
 export default function EventSourcing (user) {
     console.log(user.user)
@@ -12,7 +13,7 @@ export default function EventSourcing (user) {
     }, [])
 
     const subscribe = async () => {
-        const eventSource = new EventSource(`http://192.168.0.110:4000/connect/${user.user}`)
+        const eventSource = new EventSource(`http://158.160.90.6:4000/connect/${user.user}`)
         eventSource.onmessage = function (event) {
             const message = JSON.parse(event.data);
             setMessages(prev => [message, ...prev]);
@@ -20,12 +21,12 @@ export default function EventSourcing (user) {
     }
 
     const sendMessage = async () => {
-        await axios.post(`http://192.168.0.110:4000/new-messages/bybozavrik@gmail.com`, {
+        await axios.post(`http://158.160.90.6:4000/new-messages/bybozavrik@gmail.com`, {
             message: value,
             id: Date.now()
         })
     }
-
+    
     return (
         <div className="center">
             <div>

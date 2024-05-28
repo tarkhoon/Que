@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Button from '../components/button';
 import Image from 'react-native-image-auto-height';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 export default function Lent() {
   let [posts, setPosts] = useState(null);
 
@@ -26,6 +27,7 @@ export default function Lent() {
 
   function onEndReached(){
     getData()
+    PushNotificationIOS.addNotificationRequest({title: "fdsf"})
     console.log("reload")
   }
 
