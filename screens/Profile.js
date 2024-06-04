@@ -17,12 +17,9 @@ const numColumns = 3;
 
 
 const Profile = ({navigation, route}) => {
-  const [posts, setPosts] = useState(
-    Object.values(route.params?.post)[0]
-  );
-  
-  const [name,setName]=useState('')
 
+  const [name,setName]=useState('')
+  const [posts, setPosts]=useState('')
 useEffect(()=>{
   firebase.firestore().collection('users')
   .doc(firebase.auth().currentUser.uid).get()

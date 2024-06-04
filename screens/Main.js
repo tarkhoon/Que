@@ -16,8 +16,6 @@ import { Footer } from "../components/Footer";
 
 export default function Main({ navigation, route }) {
   var storiess = route.params?.storie;
-
-
   
   React.useLayoutEffect(() => {
     navigation.setOptions({

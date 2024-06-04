@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
 
 export default function EventSourcing (user) {
     console.log(user.user)

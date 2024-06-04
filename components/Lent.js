@@ -9,15 +9,13 @@ import {
 } from "react-native";
 import Button from '../components/button';
 import Image from 'react-native-image-auto-height';
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
 export default function Lent() {
   let [posts, setPosts] = useState(null);
 
   function getData(){
-    const data = axios.get('http://158.160.66.30:4000/photo')
+    const data = axios.get('http://84.252.141.188:4000/photo')
     data.then(res => {
       setPosts(res.data);
-      console.log(posts)
     })
   }
 
@@ -27,10 +25,7 @@ export default function Lent() {
 
   function onEndReached(){
     getData()
-    PushNotificationIOS.addNotificationRequest({title: "fdsf"})
-    console.log("reload")
   }
-
   return (
     <View style={styles.lent}>
       <FlatList
@@ -52,14 +47,12 @@ export default function Lent() {
                 </Text>
               </View>
             </View>
-            <View >
+
             <Image
               style={styles.postPicture}
               source={{ uri: item.img_uri }}
-              resizeMode="center"
             />
-            
-            </View>
+
             <View style={styles.rate}>
                 <Button  
                     icon="star" 
@@ -185,7 +178,7 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   postPicture: {
-    width: Dimensions.get('window').width-10,
+    width: Dimensions.get('screen').width-10,
     height: 'auto',
   },
   postCaption: {

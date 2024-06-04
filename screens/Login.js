@@ -22,7 +22,6 @@ const Login = () => {
         alert(error.message)
     }
   }
-  console.log("login");
   return (
     <View style={styles.main}>
       <View style={styles.inpadd}>

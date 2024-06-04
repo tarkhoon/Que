@@ -18,9 +18,8 @@ const numColumns = 3;
 
 export default function Rec({ navigation, route }) {
   var user = route.params?.user.email
-  console.log(user)
+
   const [posts, setPosts] = useState(
-    Object.values(route.params?.post)[0]
   );
   React.useLayoutEffect(() => {
     navigation.setOptions({

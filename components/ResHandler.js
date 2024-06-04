@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const host = 'http://84.252.141.188'
+
 export async function uploadPhoto(image){
 
     var formData = new FormData();
@@ -11,7 +13,7 @@ export async function uploadPhoto(image){
 
     
         try{
-            const response = await axios.post('http://158.160.90.6:4000/upload', formData, {
+            const response = await axios.post(`${host}:4000/upload`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -26,7 +28,7 @@ export async function uploadPhoto(image){
 
 export async function likePost(user,postId){
     try{
-        const response = await axios.post(`http://158.160.90.6:4000/like/${user}/${postId}`)
+        const response = await axios.post(`${host}:4000/like/${user}/${postId}`)
         console.log(response.data)
         return(response.data)
     }catch(e){
@@ -38,7 +40,7 @@ export async function likePost(user,postId){
 export async function publicate(user,rate,description,restaurant,img_url){
 
     try{
-        const response = await axios.post('http://158.160.90.6:4000/publicate', {
+        const response = await axios.post(`${host}:4000/publicate`, {
             user: user,
             rate: rate,
             description: description,
@@ -51,4 +53,27 @@ export async function publicate(user,rate,description,restaurant,img_url){
         console.log(e)
         return res.status(500)
     } 
+}
+
+export async function reg(name,nickname,email,isRestaurant){
+    try{
+        const response = await axios.post(`${host}:4000/register`,{
+            name: name,
+            nickname: nickname,
+            email: email,
+            isRestaurant: isRestaurant
+        })
+        return(response.data)
+    }catch(e){
+        return e
+    }
+}
+
+export async function getUserInfo(email){
+    try{
+        const response = await axios.get(`${host}:4000/getUserInfo/${email}`)
+        return(response.data)
+    }catch(e){
+        return e
+    }
 }

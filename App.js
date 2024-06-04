@@ -14,7 +14,7 @@ import {firebase} from "./config";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
+import { getUserInfo } from "./components/ResHandler";
 const Stack = createStackNavigator();
 
 
@@ -53,196 +53,20 @@ function App(){
       img: "https://s1.hostingkartinok.com/uploads/images/2023/11/493bd745f989bb76fd6b72ee2c5595c8.png",
     },
   ]);
-  const [posts, setPosts] = useState([
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "1",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "2",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "3",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "4",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "5",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "6",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "7",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "8",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/627da4bb2276556e59133720b857c9bb.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "9",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/476291df723c5c4d0797398a60849376.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "10",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/476291df723c5c4d0797398a60849376.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "12",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/476291df723c5c4d0797398a60849376.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "13",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/476291df723c5c4d0797398a60849376.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "14",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/476291df723c5c4d0797398a60849376.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "15",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/476291df723c5c4d0797398a60849376.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-    {
-      name: "Que",
-      restaurant_name: "#QueRestaurant",
-      grade: "5",
-      text: "Бизнес-модель",
-      key: "16",
-      img: "https://s1.hostingkartinok.com/uploads/images/2023/11/476291df723c5c4d0797398a60849376.png",
-      pic: "https://s1.hostingkartinok.com/uploads/images/2023/11/8e000d421a0df181a604c986c606616e.png",
-      likes: "100",
-      comments: "5",
-      saves: "80",
-    },
-  ]);
+  const [posts, setPosts] = useState();
 
   const [initializing, setInitializing]=useState(true);
   const [user,setUser] = useState();
-  function onAuthStateChanged(user){
+  const [data, setData] = useState();
+  async function onAuthStateChanged(user) {
     setUser(user);
     if(initializing) setInitializing(false);
   }
-
+  useEffect(() =>{
+    if(user){
+      setData(getUserInfo(user.email))
+    }
+  },[user])
 
   useEffect(() => {
     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
@@ -291,7 +115,7 @@ function App(){
         <Stack.Screen
           name="Main"
           component={Main}
-          initialParams={{ storie: stories, post: posts }}
+          initialParams={{ storie: stories }}
           options={{
             title: "Главная",
             headerTitleStyle: {
@@ -321,7 +145,6 @@ function App(){
         <Stack.Screen
           name="Profile"
           component={Profile}
-          initialParams={{ post: posts }}
           options={{
             title: "Профиль",
             headerTitleStyle: {
@@ -336,7 +159,7 @@ function App(){
         <Stack.Screen
           name="Rec"
           component={Rec}
-          initialParams={{ post: posts,user:user }}
+          initialParams={{ user:user }}
           options={{
             title: "Рекомендации",
             headerTitleStyle: {

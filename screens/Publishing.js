@@ -30,7 +30,6 @@ export default function Publish({ navigation, route }) {
         setFlag(false)
     }
     const [flag, setFlag]=useState(false);
-
     const publicate = async()=>{
         var img_url = ''
         if(!rate){
@@ -114,13 +113,13 @@ export default function Publish({ navigation, route }) {
                         <Button  
                         title={"Выбрать из галереи"} 
                         icon="folder-images" 
-                        color='black'
+                        color='#FF4401'
                         onPress={choosePhoto}
                         /> 
                         <Button  
                         title={"Сделать фото"} 
                         icon="camera" 
-                        color='black'
+                        color='#FF4401'
                         onPress={()=>{setFlag(true)}}
                         /> 
                     </View>
@@ -146,27 +145,27 @@ export default function Publish({ navigation, route }) {
                 <View style={styles.rate}>
                 <Button  
                     icon="star" 
-                    color= {rate> 0? 'orange':'black'}
+                    color= {rate> 0? '#FF4401':'black'}
                     onPress={()=>{updateRate(1)}}
                 /> 
                 <Button  
                     icon="star" 
-                    color= {rate> 1? 'orange':'black'}
+                    color= {rate> 1? '#FF4401':'black'}
                     onPress={()=>{updateRate(2)}}
                 /> 
                 <Button  
                     icon="star" 
-                    color= {rate> 2? 'orange':'black'}
+                    color= {rate> 2? '#FF4401':'black'}
                     onPress={()=>{updateRate(3)}}
                 /> 
                 <Button  
                     icon="star" 
-                    color= {rate> 3? 'orange':'black'}
+                    color= {rate> 3? '#FF4401':'black'}
                     onPress={()=>{updateRate(4)}}
                 /> 
                 <Button  
                     icon="star" 
-                    color= {rate> 4? 'orange':'black'}
+                    color= {rate> 4? '#FF4401':'black'}
                     onPress={()=>{updateRate(5)}}
                 /> 
                 </View>
@@ -212,7 +211,7 @@ const styles = StyleSheet.create({
     photo:{
       height:Dimensions.get('window').width,
       width: Dimensions.get('window').width,
-      backgroundColor: '#f1f1f1'
+      backgroundColor: '#fafafa',
     },
     image:{
         width: Dimensions.get('window').width,
@@ -229,7 +228,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop:10,
         borderWidth:1,
-        borderColor: '#red',
+        borderColor: '#a1a1a1',
         padding:7
     },
     inputrestaurant:{
@@ -239,7 +238,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 10,
         borderWidth:1,
-        borderColor: '#red',
+        borderColor: '#a1a1a1',
         padding:7
     },
     choose:{
@@ -260,8 +259,9 @@ const styles = StyleSheet.create({
         marginLeft:50,
         marginTop: 10,
         borderRadius: 30,
-        borderColor: 'orange',
-        backgroundColor:'orange'
+        borderColor: '#FF4401',
+        backgroundColor:'#FF4401',
+        color:'white'
     }
   });
   
